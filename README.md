@@ -13,7 +13,7 @@ Um die Nutzung dieses Projekts zu maximieren, sollte ein Benutzer die Ordner in 
 
 MIT License
 
-Copyright (c) [2024] [DarioLucas PatziChavez; Shinan Chen; FinnElias Lehmann; MichelCedric Schlumpf]
+Copyright (c) [2023] [DarioLucas PatziChavez; Shinan Chen; FinnElias Lehmann; MichelCedric Schlumpf]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files, to deal
