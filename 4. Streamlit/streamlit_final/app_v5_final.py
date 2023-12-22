@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
+import xlsxwriter
 
 #### Page Style
 #########################################################
@@ -19,8 +20,8 @@ st.set_page_config(
 #logo_slide_path = "C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\backg.png"
 
 
-logo_path = r"C:/Users/Michèl/Desktop/Business Analytics/streamlit_final/projectlogo/.jpg"
-logo_slide_path = r"C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\backg.png"
+logo_path = r"projectlogo.jpg"
+logo_slide_path = r"backg.png"
 
 st.image(logo_path, use_column_width=True)
 #### Sidebar
@@ -72,25 +73,25 @@ def start_page():
     st.title("The German Car Value Predictor")
     st.markdown("Willkommen bei The German Car Value Predictor! Entdecken Sie die Marktwerte von Gebrauchtwagen.")  
     st.header("Über uns")
-    st.markdown("The German Car Value Predictor wurde entwickelt, um die Preistransparenz auf dem Gebrauchtwagenmarkt zu erhöhen und damit die Informationsasymmetrie zwischen Experten und Laien zu verringern. Unser Machine-Learning-Modell, das auf einer umfangreichen Datenmenge des Marktführers Autoscout trainiert wurde, ermöglicht eine genaue Preisfindung für verschiedene Fahrzeugmodelle der Marken: Volkswagen, Mercedes-Benz, Audi, BMW, Opel und Porsche. Unsere Modelle werden in regelmässigen Abständen verbessert, um die bestmöglichen Preise zu ermitteln. Die Preise werden auf Basis des deutschen Gebrauchtwagenmarktes ermittelt und sind in Euro (€) angegeben.")
+    st.markdown("The German Car Value Predictor wurde entwickelt, um die Preistransparenz auf dem Gebrauchtwagenmarkt zu erhöhen und damit die Informationsasymmetrie zwischen Verkäufer und Käufer zu verringern. Unser Machine-Learning-Modell, das auf einer umfangreichen Datenmenge des Marktführers Autoscout24 trainiert wurde, ermöglicht eine genaue Preisfindung für verschiedene Fahrzeugmodelle der Marken: Volkswagen, Mercedes-Benz, Audi, BMW, Opel und Porsche. Unsere Modelle werden in regelmässigen Abständen verbessert und jeden Monat geupdatet gegeben den Marktbedingungen, um die bestmöglichen Preise zu ermitteln. Die Preise werden auf Basis des deutschen Gebrauchtwagenmarktes ermittelt und sind in Euro (€) angegeben.")
     st.write("")
     st.write("")
     row1_col1, row1_col2, row1_col3 = st.columns([1,1,1])
     with row1_col1:
-        st.image(r"C:/Users/Michèl/Desktop/Business Analytics/streamlit_final/vw.png", use_column_width=True)
-        st.image(r"C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\bmw.png", use_column_width=True)
+        st.image(r"vw.png", use_column_width=True)
+        st.image(r"bmw.png", use_column_width=True)
         
     with row1_col2:
-        st.image(r"C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\opel.png", use_column_width=True)
+        st.image(r"opel.png", use_column_width=True)
         st.write("")
         st.write("")
         st.write("")
-        st.image(r"C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\benz.png", use_column_width=True)
+        st.image(r"benz.png", use_column_width=True)
     with row1_col3:
-        st.image(r"C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\porsche.png", use_column_width=True)
+        st.image(r"porsche.png", use_column_width=True)
         st.write("")
         st.write("")
-        st.image(r"C:\Users\Michèl\Desktop\Business Analytics\streamlit_final\audi.png", use_column_width=True)
+        st.image(r"audi.png", use_column_width=True)
 
     st.write("")
     st.write("")
@@ -732,7 +733,7 @@ def predicting_one_car():
 ###
 def data_prediction():
 
-    template = pd.read_csv(r"C:/Users/Michèl/Desktop/Business Analytics/streamlit_final/Excel_Upload_Template.csv")
+    template = pd.read_csv(r"Excel_Upload_Template.csv")
     st.title("Prediction")
     
     st.header("Bestimme den Preis eines Autos")    
@@ -742,7 +743,7 @@ def data_prediction():
     st.header("Bestimme den Preis mehrerer Autos")   
     st.markdown("Bitte nutze das Teamplate zur Bestimmung mehrerer Preise. Lade das Template mit den eingetragenen Werten hoch.")
     
-    template = open(r"C:/Users/Michèl/Desktop/Business Analytics/streamlit_final/Excel_Upload_Template.csv")
+    template = open(r"Excel_Upload_Template.csv")
     st.download_button(label="Download Template",
                         data = template,
                         file_name='prediction_template.csv',
@@ -758,18 +759,28 @@ def data_prediction():
 def model_info():
     st.title("Modell Performance")    
     st.header("Aktuelles Modell")
-    st.markdown("blablabla")
+    st.markdown("Das aktuelle Modell wurde am 22.12.2023 auf The German Car Value Predictor hochgeladen. Wir werden das Modell kontinuierlich anpassen und verbessern. Wenn ein neues Modell hochgeladen wird, wirst du hier darüber informiert. Die Updates folgen monatlich.")
     
     st.subheader("Performance")
-    st.markdown("blablabla")
-    st.image(r"C:/Users/Michèl/Desktop/Business Analytics/streamlit_final/actualpredicetplot.png", use_column_width=True)
+    markdown_text = """
+    ### Model Performance Metrics
+
+    | Metric | Train                 | Validation           | Test                 |
+    | ------ | --------------------- | -------------------- | -------------------- |
+    | RMSE   | 3245.443821861982     | 7576.675649713866    | 7781.267997829927    |
+    | MAPE   | 0.06890607938966471   | 0.12128657638095858  | 0.1265090272584851   |
+    | MAE    | 2086.4275143101972    | 3937.195006313225    | 4012.0150687295004   |
+    | R^2    | 0.9794345445803275    | 0.9191033293570062   | 0.9193551817611662   |
+    """
+    st.markdown(markdown_text)
+    st.image(r"actualpredicetplot.png", use_column_width=True)
 
     st.header("Modelling Prozess")
     st.subheader("Research Question")
     st.markdown("Wie kann ein in einer benutzerfreundlichen Web-App integriertes Machine Learning-Modell sowohl Verkaufenden als auch Kaufenden ermöglichen, effizient und effektiv Informationsasymmetrien zu verringern und dadurch zu einer fairen und transparenten Preisfindung auf dem deutschen Gebrauchtwagenmarkt beitragen?")
     st.subheader("Übersicht")
     st.markdown("In der folgenden Übersicht sind verschiedene Modelle, die während des Modellierungsprozesses getestet wurden, sowie ihre Metriken und Hyperparameter aufgeführt.")
-    st.image(r"C:/Users/Michèl/Desktop/Business Analytics/streamlit_final/modelling.png", use_column_width=True)
+    st.image(r"modelling.jpg", use_column_width=True)
 
 #### Navigation
 #########################################################
