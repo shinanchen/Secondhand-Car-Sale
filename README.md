@@ -7,11 +7,7 @@ Um dieses Projekt zu installieren, sollten die Benutzer in der Lage sein, Python
 Dann reicht es aus, das Repository einfach herunterzuladen.
 
 ## Usage
-Um die Nutzung dieses Projekts zu maximieren, sollte ein Benutzer die Ordner in numerischer Reihenfolge durchgehen. 
-Um jedes Notizbuch besser zu verstehen, sollte der Benutzer auch die Übersicht lesen, die im ersten Markdown jedes Notizbuchs bereitgestellt wird. 
-Um den Scraper für ein ähnliches Projekt zu verwenden, kann ein Benutzer einfach die Struktur des vorhandenen Codes nutzen. 
-Wenn ein Benutzer die Daten weiter erkunden und eigene Modelle mit demselben Datensatz wie in diesem Projekt trainieren möchte, 
-kann der Benutzer einfach die Datei "German_Cars_Data.csv" im Ordner "1. Data Scrapping" herunterladen.
+Um die Nutzung dieses Projekts zu maximieren, sollte ein Benutzer die Ordner in numerischer Reihenfolge durchgehen. Da viele CSV-Dateien in diesem Projekt das Standardgrößenlimit auf Github überschreiten, wird empfohlen, Git Large File Storage zu verwenden, um einige der größeren Dateien zu verwalten. Darüber hinaus, um jedes Notizbuch besser zu verstehen, sollte der Benutzer auch die Übersicht lesen, die im ersten Markdown jedes Notizbuchs bereitgestellt wird. Um den Scraper für ein ähnliches Projekt zu verwenden, kann ein Benutzer einfach die Struktur des vorhandenen Codes im Notizbuch "Scraping.ipynb" in der Datei "1. Data Scrapping" nutzen. Zusätzlich, wenn ein Benutzer die Daten weiter erforschen und eigene Modelle mit demselben Datensatz wie in diesem Projekt trainieren möchte, kann der Benutzer die Datei "German_Cars_Data.csv" im Ordner "1. Data Scrapping" herunterladen.
 
 ## License
 
