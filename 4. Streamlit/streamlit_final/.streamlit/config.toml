@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#8B0000" #slider
+backgroundColor = "#A9BFC7" #main color
+secondaryBackgroundColor = "#7697AA" #color sidebar 
+textColor = "26404D" #062131
+font = "sans serif"
