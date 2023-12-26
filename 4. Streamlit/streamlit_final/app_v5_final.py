@@ -733,7 +733,7 @@ def predicting_one_car():
 ###
 def data_prediction():
 
-    template = pd.read_csv(r"Excel_Upload_Template.csv")
+
     st.title("Prediction")
     
     st.header("Bestimme den Preis eines Autos")    
@@ -743,12 +743,15 @@ def data_prediction():
     st.header("Bestimme den Preis mehrerer Autos")   
     st.markdown("Bitte nutze das Teamplate zur Bestimmung mehrerer Preise. Lade das Template mit den eingetragenen Werten hoch.")
     
-    template = open(r"Excel_Upload_Template.csv")
-    st.download_button(label="Download Template",
-                        data = template,
-                        file_name='prediction_template.csv',
-                        mime="text/csv"
-                        )
+
+    template = "Excel_Upload_Template.xlsx"
+
+    with open(template, "rb") as file:
+        st.download_button(
+                label="Download Excel Template",
+                data=file,
+                file_name="Excel_Upload_Template.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
     
     predicting_uploaded_data()
     
